@@ -8,7 +8,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order("created_at DESC")
   end
 
   def new
@@ -23,6 +23,20 @@ class Admin::JobsController < ApplicationController
     else
       render :new
     end
+  end
+  def publish
+    @job = Job.find(params[:id])
+    @job.publish!
+
+    redirect_to :back
+  end
+
+  def hide
+    @job = Job.find(params[:id])
+
+    @job.hide!
+
+    redirect_to :back
   end
 
   def edit

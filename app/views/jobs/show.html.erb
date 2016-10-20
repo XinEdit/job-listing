@@ -1,14 +1,14 @@
 <h1> <%= @job.title %> </h1>
 
 <p>
-  <%= simple_format(@job.description) %>
-  <%= @job.wage_lower_bound %>
+  <%= simple_format(@job.description) %></p>
+  <p><%= @job.wage_lower_bound %></p>
 
 
-  <%= @job.wage_upper_bound %>
-  <%= simple_format(@job.contact_email) %>
+  <p><%= @job.wage_upper_bound %></p>
+  <p><%= simple_format(@job.contact_email) %></p>
 
-</p>
+
 <div class="text-center">
   <%= will_paginate @posts %>
 </div>
